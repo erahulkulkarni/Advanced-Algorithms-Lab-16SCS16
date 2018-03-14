@@ -1,0 +1,129 @@
+// Implement a Monte Carlo algorithm to test the primality of a given integer and determine its performance.
+
+// A primality test is an algorithm for determining whether an input number is prime. 
+// A prime number (or a prime) is a natural number greater than 1 
+//   that has no positive divisors other than 1 and itself. 
+
+// Topic of debate - 1 is a prime number
+
+// Is a given (odd) positive integer a prime?
+
+// Why check primality - one use in cryptography ,  Hashing - table size , 
+//   public-key cryptography, which makes use of properties of difficulty of factoring large numbers into their prime factors
+//   say factoring a large, 400-digit number into two 200-digit primes 
+//   RSA algorithm
+
+// Brute force application 
+//  divisibility by odd numbers from 3 to square root of N 
+//  requires roughly 1/2 times square root of N divisions, 
+//  for say 200 digit number , 10 power 200 , 
+//  it is about 10 power 200/2 computations - 10 power 100
+
+// Now say we have a Multi core , for simplicaity say 10 core processor , each of say 10 G Hz
+// So we have 10 x 10 x 10 power 9 computation capacity per second
+// So 10 x 10 x 10 power 9 , 10 power 11 computations per second
+
+// With above computation power how long would 10 power 100 computations be completed
+//        10 power 11  computations  in  1 second
+// hence  10 power 100 computations  in  ( 10 power 100 / 10 power 11 ) seconds
+
+// 10 power 89 seconds
+
+// Lets convert it to years
+// 1 year has 365 days x 24 hours x 60 minutes x 60 seconds = 31536000 seconds
+// 31536000 be 3 x 10 power 7
+// Now lets be generous again and say its 10 x 10 power 7 = 10 power 8 seconds
+
+// If    10 power 8  seconds  is  1 year 
+// Then  10 power 89 seconds  is  ( 10 power 89 / 10 power 8 ) = 10 power 81 years
+// roughly 10 power ( 100 - 20 ) , 100 was our number of digits
+
+// 10 followed by 80 zeros years to calculate if a number with 400 digits is prime with brute force approach
+// or 1 followed by 81 zeros 
+
+// Now would you suggest brute force algorithm to test primality
+
+// Asymptotically
+// if number n , then number of digits is log n to base 10
+// number of digits m = log n
+// So ( approximately ) run time = 10 power ( log n - 20 )
+// Exponential !
+
+// Other Solution
+// sieve of Eratosthenes
+
+// If it can not happe in our life time , then 
+
+// And faster solution
+
+// Can we use randomization ?
+// Now lets see whats - Monte Carlo
+// Monte Carlo methods (or Monte Carlo experiments) are a broad class of computational algorithms 
+// that rely on repeated random sampling to obtain numerical results. 
+// Their essential idea is using randomness to solve problems that might be deterministic in principle. 
+// They are often used in physical and mathematical problems and are most useful when it is difficult or impossible to use other approaches. 
+// Monte Carlo methods are mainly used in three distinct problem classes:
+//  1. optimization, 
+//  2. numerical integration, and 
+//  3. generating draws from a probability distribution.
+
+// Randomized algorithms - Miller-Rabin algorithm for primality testing of integers
+
+// The AKS primality test (also known as Agrawal–Kayal–Saxena primality test and cyclotomic AKS test) 
+// Is a deterministic primality-proving algorithm by Manindra Agrawal, Neeraj Kayal, and Nitin Saxena, 
+// The algorithm determines whether a number is prime or composite within polynomial time. 
+// The authors received the 2006 Gödel Prize and the 2006 Fulkerson Prize for this work.
+// Deterministic polynomial-time algorithm for primality testing
+
+// Ford–Fulkerson algorithm (FFA) is a greedy algorithm that computes the maximum flow in a flow network
+// Yes Bellman Ford!
+
+// Fermat
+
+
+// A probabilistic primality testing algorithm - What concept is being made 
+// Binary number representation in computers , ease of finding powers of 2
+// And the theorem
+// (Fermat’s Lesser Theorem) If P is prime, and 0 < A < P, then A power (P−1) ≡ 1 (mod P)
+// A in above example generally considered as 2 , so 2 power (P−1) ≡ 1 (mod P)
+// But - Carmichael numbers.
+
+// Mersenne primes
+
+
+// 
+
+// Composite number ?
+// How decrease probability of making error
+
+// Chinese Remainder theorem
+
+// The basic structure of randomized primality tests is as follows:
+
+//  1.  Randomly pick a number a.
+//  2.  Check some equality (corresponding to the chosen test) involving a and the given number n. 
+//      If the equality fails to hold true, then n is a composite number, 
+//      a is known as a witness for the compositeness, and the test stops.
+//  3.  Repeat from step 1 until the required accuracy is achieved.
+
+After one or more iterations, if n is not found to be a composite number, then it can be declared probably prime.
+
+
+
+public class PrimalityTestWithMonteCarloMethod {
+
+    public static void main(String[] args) {
+        // Would Miller-Rabin algorithm for primality testing of integers be sufficient
+        // Monte Carlo Methods / Algorithm / Experiment definition be satisfied by Miller-Rabin algorithm
+
+    }
+    
+}
+
+// I am awaited at the gates of Valhela , Witness me 
+// Mad Max Fury Road
+
+// Coursera - Algorithms I and II , Tim / Tom Rougeden
+
+// Introduction to Algorithm - Text book mentions RSA lot many time - RSA , 
+// RONALD L. RIVEST - R in RSA , Creater of RSA also author of text book
